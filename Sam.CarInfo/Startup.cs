@@ -81,7 +81,7 @@ namespace Sam.CarInfo
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseResponseCompression();
             app.UseMvc();
         }
