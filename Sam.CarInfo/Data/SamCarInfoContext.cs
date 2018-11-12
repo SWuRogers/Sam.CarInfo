@@ -53,8 +53,6 @@ namespace Sam.CarInfo.Models
 
            );
 
-
         }
-
     }
 }

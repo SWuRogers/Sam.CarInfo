@@ -12,8 +12,8 @@ namespace Sam.CarInfo.Test
 {
     public class ControllerTestBase
     {
-        protected HttpClient GetClient()
-        {
+        protected HttpClient GetClient() { 
+        
             var builder = new WebHostBuilder()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseConfiguration(new ConfigurationBuilder().AddJsonFile("appsettings.json").Build())
@@ -49,6 +49,12 @@ namespace Sam.CarInfo.Test
             Console.WriteLine(response.StatusCode);
         }
 
-
+        [Fact]
+        public async Task Monkey1()
+        {
+            var response = await this._client.GetAsync($"/car/makes");
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(response.StatusCode);
+        }
     }
 }

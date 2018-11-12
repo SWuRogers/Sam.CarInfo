@@ -28,12 +28,13 @@ namespace Sam.CarInfo.Filters
             response.StatusCode = (int)status;
             response.ContentType = "application/json";
 
-            
+
             //SamToDo, global logging error can be done here
-            _logger.LogWarning("Something just happened: "+ message+ "|" +context.Exception.StackTrace);
+            var responseMsg = "Something just happened: " + message + "|" + context.Exception.StackTrace;
+            _logger.LogWarning(responseMsg);
             //End of SamToDo
 
-            response.WriteAsync(JsonConvert.SerializeObject(message));
+            response.WriteAsync(JsonConvert.SerializeObject(responseMsg));
         }
     }
 }

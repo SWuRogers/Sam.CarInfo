@@ -63,6 +63,7 @@ namespace Sam.CarInfo
 
             services.AddDbContext<SamCarInfoContext>(options =>
                 options.UseLoggerFactory(_loggerFactory)
+                //.UseInMemoryDatabase("Sam.CarInfo"));
                 .UseSqlServer(Configuration.GetConnectionString("SamCarInfoContext")));
 
             services.AddScoped<ICarInventoryRepository, CarInventoryRepository>();
@@ -81,7 +82,7 @@ namespace Sam.CarInfo
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+
             app.UseResponseCompression();
             app.UseMvc();
         }
